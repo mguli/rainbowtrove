@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Paris Bookmark",
+    "price": "$5",
+    "image": "/images/bookmarks/paris1.png",
+    "tag": "Personalized"
+  },
+  {
+    "title": "Bookish Reader Sticker",
+    "price": "$10",
+    "image": "/images/stickers/reader1.png",
+    "tag": "Best seller"
+  },
+  {
+    "title": "Cat Floral Bookmark",
+    "price": "$4.99",
+    "image": "https://i.etsystatic.com/44513884/r/il/697bf6/5880214945/il_fullxfull.5880214945_499j.jpg",
+    "tag": "Reader gift"
+  }
+]

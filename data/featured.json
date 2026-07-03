@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Personalized Bookmarks",
+    "description": "Colorful keepsakes for readers, teachers, and book club friends.",
+    "accent": "bg-[#f3e3df] text-[#9f6f68]"
+  },
+  {
+    "title": "Bookish Stickers",
+    "description": "Sweet vinyl-style designs for journals, laptops, and gift boxes.",
+    "accent": "bg-[#dde8d5] text-[#6f8565]"
+  },
+  {
+    "title": "Custom Gift Bundles",
+    "description": "Handpicked sets with names, dates, and tiny thoughtful details.",
+    "accent": "bg-[#f4ead8] text-[#9a7b4f]"
+  }
+]
