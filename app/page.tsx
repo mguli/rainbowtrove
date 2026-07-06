@@ -13,7 +13,7 @@ export default function Home() {
               Handmade gifts with a little extra sparkle
             </p>
             <h1 className="text-4xl font-extrabold leading-tight text-[#4A4A4A] sm:text-5xl lg:text-6xl">
-            Personalized gifts and handmade keepsakes designed to make everyday moments special.
+              Thoughtful personalized gifts made with color, creativity, and care.
             </h1>
             <p className="mt-6 text-lg leading-8 text-[#6f625c]">
               Rainbow Trove makes personalized bookmarks, stickers, and keepsake bundles
@@ -33,10 +33,14 @@ export default function Home() {
                 Start a Custom Order
               </Link>
             </div>
+            <p className="mt-5 max-w-xl text-sm font-semibold leading-6 text-[#6f625c]">
+              Personalized bookmarks, stickers, mugs, tumblers, coasters, and custom gifts
+              made for readers, teachers, sports fans, and everyday celebrations.
+            </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="overflow-hidden rounded-[2rem] bg-[#fffaf5] p-4 shadow-xl shadow-[#eadbd5]">
+            <div className="self-start overflow-hidden rounded-[2rem] bg-[#fffaf5] p-4 shadow-xl shadow-[#eadbd5]">
               <Image
                 src="/images/bookmarks/paris1.png"
                 alt="Paris themed handmade bookmark"
@@ -56,49 +60,17 @@ export default function Home() {
                   className="h-44 w-full rounded-[1.5rem] object-cover"
                 />
               </div>
-              <div className="rounded-[2rem] border border-[#dfe8d7] bg-[#eef4e8] p-6 text-[#4f5f49] shadow-xl shadow-[#dfe8d7]">
-                <p className="text-3xl font-extrabold">100%</p>
-                <p className="mt-2 text-sm leading-6 text-[#6f8565]">
-                  Made with playful colors, personal details, and gift-ready care.
-                </p>
+              <div className="overflow-hidden rounded-[2rem] bg-[#fffaf5] p-4 shadow-xl shadow-[#eadbd5]">
+                <Image
+                  src="https://i.etsystatic.com/44513884/r/il/20b6f8/5832098894/il_fullxfull.5832098894_8koa.jpg"
+                  alt="Personalized glass tumbler with bamboo lid"
+                  width={420}
+                  height={420}
+                  className="h-44 w-full rounded-[1.5rem] object-cover"
+                />
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#9f6f68]">
-              Featured Collections
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold text-[#4A4A4A]">Discover Your Perfect Gift</h2>
-          </div>
-          <Link href="/products" className="text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]">
-            View all products
-          </Link>
-        </div>
-
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredCategories.map((category) => (
-            <article
-              key={category.title}
-              className="rounded-3xl border border-[#eadbd5] bg-[#fffdf9] p-6 shadow-sm shadow-[#eadbd5] transition hover:-translate-y-1 hover:shadow-xl"
-            >
-              <span className={`inline-flex rounded-full px-3 py-1 text-sm font-bold ${category.accent}`}>
-                {category.icon}
-              </span>
-              <h3 className="mt-5 text-xl font-extrabold text-[#4A4A4A]">{category.title}</h3>
-              <p className="mt-3 leading-7 text-[#6f625c]">{category.description}</p>
-              <Link
-                href={category.href}
-                className="mt-5 inline-flex text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]"
-              >
-                {category.cta} →
-              </Link>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -138,6 +110,41 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#9f6f68]">
+              Featured Collections
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold text-[#4A4A4A]">Shop by Collection</h2>
+          </div>
+          <Link href="/products" className="text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]">
+            View all products
+          </Link>
+        </div>
+
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredCategories.map((category) => (
+            <article
+              key={category.title}
+              className="rounded-3xl border border-[#eadbd5] bg-[#fffdf9] p-7 shadow-sm shadow-[#eadbd5] transition hover:-translate-y-1 hover:shadow-xl"
+            >
+              <span className={`inline-flex rounded-full px-3 py-1 text-sm font-bold ${category.accent}`}>
+                {category.icon}
+              </span>
+              <h3 className="mt-5 text-xl font-extrabold text-[#4A4A4A]">{category.title}</h3>
+              <p className="mt-3 leading-7 text-[#6f625c]">{category.description}</p>
+              <Link
+                href={category.href}
+                className="mt-5 inline-flex text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]"
+              >
+                {category.cta} →
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
         <div className="grid gap-8 rounded-[2rem] border border-[#dfe8d7] bg-[#eef4e8] p-8 text-[#4f5f49] shadow-sm shadow-[#dfe8d7] sm:p-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#6f8565]">Custom Orders</p>
@@ -156,6 +163,21 @@ export default function Home() {
               Request a Custom Gift
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 pb-16 lg:px-8">
+        <div className="rounded-[2rem] border border-[#eadbd5] bg-[#fffdf9] p-8 shadow-sm shadow-[#eadbd5] sm:p-10">
+          <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#9f6f68]">Our Story</p>
+          <h2 className="mt-3 text-3xl font-extrabold text-[#4A4A4A]">Handmade with care, color, and meaning.</h2>
+          <p className="mt-4 max-w-3xl text-lg leading-8 text-[#6f625c]">
+            Rainbow Trove began with meaningful handmade gifts for loved ones and grew
+            into a shop for personalized treasures, cheerful everyday pieces, and custom
+            designs made to feel personal.
+          </p>
+          <Link href="/about" className="mt-6 inline-flex text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]">
+            Read more about Rainbow Trove →
+          </Link>
         </div>
       </section>
 

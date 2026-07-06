@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { getProductCta } from "../lib/productCta";
 import ProductCard from "./productCard";
 
 type Product = {
@@ -13,6 +14,7 @@ type Product = {
   category: string;
   tags?: string[];
   collections?: string[];
+  personalizable?: boolean;
 };
 
 type ProductsCatalogProps = {
@@ -183,15 +185,21 @@ export default function ProductsCatalog({
 
       {filteredProducts.length > 0 ? (
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              image={product.image}
-              title={product.title}
-              description={product.shortDescription}
-              price={product.price}
-            />
-          ))}
+          {filteredProducts.map((product) => {
+            const cta = getProductCta(product);
+
+            return (
+              <ProductCard
+                key={product.id}
+                image={product.image}
+                title={product.title}
+                description={product.shortDescription}
+                price={product.price}
+                ctaLabel={cta.label}
+                ctaHref={cta.href}
+              />
+            );
+          })}
         </div>
       ) : (
         <div className="mt-6 rounded-3xl border border-[#eadbd5] bg-[#fffdf9] p-8 text-center text-[#6f625c]">
