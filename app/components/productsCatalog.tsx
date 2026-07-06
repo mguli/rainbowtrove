@@ -26,6 +26,7 @@ const collectionLabels: Record<string, string> = {
   all: "All collections",
   readers: "For Readers",
   teachers: "For Teachers",
+  sports: "Sports Fans",
   everyday: "Everyday Favorites",
   custom: "Custom Made For You",
 };

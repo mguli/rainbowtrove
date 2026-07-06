@@ -16,6 +16,14 @@
     "accent": "bg-[#dde8d5] text-[#6f8565]"
   },
   {
+    "icon": "⚽",
+    "title": "Sports Fans",
+    "description": "Personalized bookmarks and gifts for football, soccer, and basketball fans.",
+    "cta": "Shop Sports Gifts",
+    "href": "/products?collection=sports",
+    "accent": "bg-[#dde8d5] text-[#6f8565]"
+  },
+  {
     "icon": "☕",
     "title": "Everyday Favorites",
     "description": "Mugs, tumblers, coasters, and cheerful gifts.",
