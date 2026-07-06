@@ -1,14 +1,105 @@
+const productTypes = [
+  "Bookmark",
+  "Sticker or decal",
+  "Mug or tumbler",
+  "Coaster",
+  "Tote bag",
+  "Phone wallet",
+  "Other custom gift",
+];
+
 export default function CustomOrder() {
-    return (
-        <div>
-            <h1>Custom Order</h1>
-            <p>Tell us about your idea and we will get back to you with a quote.</p>
-            <form>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="text" placeholder="Idea" />
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    );
+  return (
+    <form className="rounded-3xl border border-[#eadbd5] bg-[#fffdf9] p-6 shadow-sm shadow-[#eadbd5]">
+      <div>
+        <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#9f6f68]">
+          Custom Order Request
+        </p>
+        <h2 className="mt-3 text-2xl font-extrabold text-[#4A4A4A]">Tell us what you have in mind</h2>
+        <p className="mt-3 leading-7 text-[#6f625c]">
+          Share the product, personalization details, colors, theme, and when you need it.
+          We will follow up by email with questions, options, and a quote.
+        </p>
+      </div>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <label className="block">
+          <span className="text-sm font-bold text-[#6f625c]">Name</span>
+          <input
+            type="text"
+            name="name"
+            required
+            className="mt-2 w-full rounded-2xl border border-[#eadbd5] bg-[#fffaf5] px-4 py-3 text-sm font-semibold text-[#4A4A4A] outline-none transition placeholder:text-[#9b8b83] focus:border-[#b8837a]"
+            placeholder="Your name"
+          />
+        </label>
+
+        <label className="block">
+          <span className="text-sm font-bold text-[#6f625c]">Email</span>
+          <input
+            type="email"
+            name="email"
+            required
+            className="mt-2 w-full rounded-2xl border border-[#eadbd5] bg-[#fffaf5] px-4 py-3 text-sm font-semibold text-[#4A4A4A] outline-none transition placeholder:text-[#9b8b83] focus:border-[#b8837a]"
+            placeholder="you@example.com"
+          />
+        </label>
+
+        <label className="block">
+          <span className="text-sm font-bold text-[#6f625c]">Product type</span>
+          <select
+            name="productType"
+            className="mt-2 w-full rounded-2xl border border-[#eadbd5] bg-[#fffaf5] px-4 py-3 text-sm font-semibold text-[#4A4A4A] outline-none transition focus:border-[#b8837a]"
+            defaultValue=""
+          >
+            <option value="" disabled>
+              Choose a product
+            </option>
+            {productTypes.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className="block">
+          <span className="text-sm font-bold text-[#6f625c]">Needed by</span>
+          <input
+            type="date"
+            name="neededBy"
+            className="mt-2 w-full rounded-2xl border border-[#eadbd5] bg-[#fffaf5] px-4 py-3 text-sm font-semibold text-[#4A4A4A] outline-none transition focus:border-[#b8837a]"
+          />
+        </label>
+      </div>
+
+      <label className="mt-4 block">
+        <span className="text-sm font-bold text-[#6f625c]">Personalization details</span>
+        <textarea
+          name="personalization"
+          rows={4}
+          className="mt-2 w-full rounded-2xl border border-[#eadbd5] bg-[#fffaf5] px-4 py-3 text-sm font-semibold text-[#4A4A4A] outline-none transition placeholder:text-[#9b8b83] focus:border-[#b8837a]"
+          placeholder="Names, dates, quotes, colors, school/team/theme, design ideas..."
+        />
+      </label>
+
+      <label className="mt-4 block">
+        <span className="text-sm font-bold text-[#6f625c]">Project notes</span>
+        <textarea
+          name="message"
+          rows={5}
+          required
+          className="mt-2 w-full rounded-2xl border border-[#eadbd5] bg-[#fffaf5] px-4 py-3 text-sm font-semibold text-[#4A4A4A] outline-none transition placeholder:text-[#9b8b83] focus:border-[#b8837a]"
+          placeholder="Tell us about the occasion, quantity, budget range, or anything else we should know."
+        />
+      </label>
+
+      <button
+        type="submit"
+        className="mt-6 rounded-full bg-[#b8837a] px-6 py-3 text-sm font-bold text-[#fffaf5] shadow-lg shadow-[#eadbd5] transition hover:bg-[#9f6f68]"
+      >
+        Send Request
+      </button>
+    </form>
+  );
 }

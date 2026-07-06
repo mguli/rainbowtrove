@@ -1,17 +1,34 @@
 [
   {
-    "title": "Personalized Bookmarks",
-    "description": "Colorful keepsakes for readers, teachers, and book club friends.",
+    "icon": "📚",
+    "title": "For Readers",
+    "description": "Bookmarks, stickers, and thoughtful gifts for book lovers.",
+    "cta": "Shop Reader Favorites",
+    "href": "/products?collection=readers",
     "accent": "bg-[#f3e3df] text-[#9f6f68]"
   },
   {
-    "title": "Bookish Stickers",
-    "description": "Sweet vinyl-style designs for journals, laptops, and gift boxes.",
+    "icon": "🍎",
+    "title": "For Teachers",
+    "description": "Classroom stickers, appreciation gifts, and personalized keepsakes.",
+    "cta": "Shop Teacher Gifts",
+    "href": "/products?collection=teachers",
     "accent": "bg-[#dde8d5] text-[#6f8565]"
   },
   {
-    "title": "Custom Gift Bundles",
-    "description": "Handpicked sets with names, dates, and tiny thoughtful details.",
+    "icon": "☕",
+    "title": "Everyday Favorites",
+    "description": "Mugs, tumblers, coasters, and cheerful gifts.",
+    "cta": "Shop Everyday Gifts",
+    "href": "/products?collection=everyday",
     "accent": "bg-[#f4ead8] text-[#9a7b4f]"
+  },
+  {
+    "icon": "✨",
+    "title": "Custom Made For You",
+    "description": "Personalized names, themes, quotes, and one-of-a-kind creations.",
+    "cta": "Start a Custom Order",
+    "href": "/contact",
+    "accent": "bg-[#f3e3df] text-[#9f6f68]"
   }
 ]

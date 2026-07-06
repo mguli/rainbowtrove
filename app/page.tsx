@@ -71,26 +71,32 @@ export default function Home() {
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#9f6f68]">
-              Featured Categories
+              Featured Collections
             </p>
-            <h2 className="mt-3 text-3xl font-extrabold text-[#4A4A4A]">Find your perfect tiny treasure</h2>
+            <h2 className="mt-3 text-3xl font-extrabold text-[#4A4A4A]">Discover Your Perfect Gift</h2>
           </div>
           <Link href="/products" className="text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]">
             View all products
           </Link>
         </div>
 
-        <div className="mt-8 grid gap-5 md:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {featuredCategories.map((category) => (
             <article
               key={category.title}
               className="rounded-3xl border border-[#eadbd5] bg-[#fffdf9] p-6 shadow-sm shadow-[#eadbd5] transition hover:-translate-y-1 hover:shadow-xl"
             >
               <span className={`inline-flex rounded-full px-3 py-1 text-sm font-bold ${category.accent}`}>
-                Handmade
+                {category.icon}
               </span>
               <h3 className="mt-5 text-xl font-extrabold text-[#4A4A4A]">{category.title}</h3>
               <p className="mt-3 leading-7 text-[#6f625c]">{category.description}</p>
+              <Link
+                href={category.href}
+                className="mt-5 inline-flex text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]"
+              >
+                {category.cta} →
+              </Link>
             </article>
           ))}
         </div>
