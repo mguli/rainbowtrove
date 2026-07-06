@@ -7,6 +7,7 @@ import ProductCard from "./productCard";
 type Product = {
   id: string;
   title: string;
+  displayTitle?: string;
   shortDescription: string;
   description?: string;
   price: number;
@@ -71,6 +72,7 @@ export default function ProductsCatalog({
 
         const searchableText = [
           product.title,
+          product.displayTitle,
           product.category,
           product.shortDescription,
           product.description,
@@ -85,7 +87,9 @@ export default function ProductsCatalog({
     return [...nextProducts].sort((a, b) => {
       if (sort === "price-asc") return a.price - b.price;
       if (sort === "price-desc") return b.price - a.price;
-      if (sort === "title-asc") return a.title.localeCompare(b.title);
+      if (sort === "title-asc") {
+        return (a.displayTitle ?? a.title).localeCompare(b.displayTitle ?? b.title);
+      }
       return 0;
     });
   }, [category, collection, products, query, sort]);
@@ -192,7 +196,7 @@ export default function ProductsCatalog({
               <ProductCard
                 key={product.id}
                 image={product.image}
-                title={product.title}
+                title={product.displayTitle ?? product.title}
                 description={product.shortDescription}
                 price={product.price}
                 ctaLabel={cta.label}

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Maximize2, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { useState } from "react";
 
 type ProductGalleryProps = {
@@ -12,6 +12,18 @@ type ProductGalleryProps = {
 export default function ProductGallery({ images, title }: ProductGalleryProps) {
   const [selectedImage, setSelectedImage] = useState(images[0]);
   const [isExpanded, setIsExpanded] = useState(false);
+  const selectedIndex = Math.max(images.indexOf(selectedImage), 0);
+  const hasMultipleImages = images.length > 1;
+
+  function showPreviousImage() {
+    const nextIndex = selectedIndex === 0 ? images.length - 1 : selectedIndex - 1;
+    setSelectedImage(images[nextIndex]);
+  }
+
+  function showNextImage() {
+    const nextIndex = selectedIndex === images.length - 1 ? 0 : selectedIndex + 1;
+    setSelectedImage(images[nextIndex]);
+  }
 
   return (
     <div>
@@ -24,6 +36,26 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
           className="object-contain p-4"
           priority
         />
+        {hasMultipleImages && (
+          <>
+            <button
+              type="button"
+              onClick={showPreviousImage}
+              aria-label="View previous product image"
+              className="absolute left-4 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-[#fffaf5]/95 text-[#8a7467] shadow-sm shadow-[#eadbd5] transition hover:bg-[#f3e8e2]"
+            >
+              <ChevronLeft aria-hidden="true" className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={showNextImage}
+              aria-label="View next product image"
+              className="absolute right-4 top-1/2 inline-flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-[#fffaf5]/95 text-[#8a7467] shadow-sm shadow-[#eadbd5] transition hover:bg-[#f3e8e2]"
+            >
+              <ChevronRight aria-hidden="true" className="h-5 w-5" />
+            </button>
+          </>
+        )}
         <button
           type="button"
           onClick={() => setIsExpanded(true)}
@@ -34,7 +66,7 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
         </button>
       </div>
 
-      {images.length > 1 && (
+      {hasMultipleImages && (
         <div className="mt-4 grid grid-cols-4 gap-3 sm:grid-cols-5">
           {images.map((image, index) => (
             <button
@@ -84,6 +116,26 @@ export default function ProductGallery({ images, title }: ProductGalleryProps) {
                 sizes="100vw"
                 className="object-contain p-4"
               />
+              {hasMultipleImages && (
+                <>
+                  <button
+                    type="button"
+                    onClick={showPreviousImage}
+                    aria-label="View previous product image"
+                    className="absolute left-4 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-[#fffaf5]/95 text-[#8a7467] shadow-sm shadow-[#eadbd5] transition hover:bg-[#f3e8e2]"
+                  >
+                    <ChevronLeft aria-hidden="true" className="h-6 w-6" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showNextImage}
+                    aria-label="View next product image"
+                    className="absolute right-4 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-[#fffaf5]/95 text-[#8a7467] shadow-sm shadow-[#eadbd5] transition hover:bg-[#f3e8e2]"
+                  >
+                    <ChevronRight aria-hidden="true" className="h-6 w-6" />
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@
   {
     "id": "personalized-sports-bookmark-football-soccer-basketball-reader-gift",
     "title": "Personalized Sports Bookmark | Football, Soccer, Basketball Reader Gift",
+    "displayTitle": "Sports Bookmark",
     "description": "Personalized sports bookmarks for football, soccer, and basketball fans who love to read.",
     "shortDescription": "Personalized sports bookmarks for football, soccer, and basketball fans who love to read.",
     "price": 4.99,
@@ -68,6 +69,7 @@
   {
     "id": "personalized-dad-mug-custom-nutrition-facts-coffee-cup-father-s-day-gift-gift-fr",
     "title": "Personalized Dad Mug | Custom Nutrition Facts Coffee Cup | Father's Day Gift | Gift from Kids",
+    "displayTitle": "Dad Nutrition Facts Mug",
     "description": "A custom nutrition-facts mug made for dads, grandpas, and father figures.",
     "shortDescription": "A custom nutrition-facts mug made for dads, grandpas, and father figures.",
     "price": 22.99,
@@ -116,6 +118,7 @@
   {
     "id": "cat-floral-bookmark-handmade-reader-gift-custom-page-marker",
     "title": "Cat Floral Bookmark | Handmade Reader Gift, Custom Page Marker",
+    "displayTitle": "Cat Floral Bookmark",
     "description": "A charming floral bookmark with cozy cat-inspired artwork for everyday reading.",
     "shortDescription": "A charming floral bookmark with cozy cat-inspired artwork for everyday reading.",
     "price": 4.99,
@@ -180,6 +183,7 @@
   {
     "id": "personalized-customized-16oz-glass-tumbler-with-bamboo-lid-and-a-straw",
     "title": "Personalized Customized 16oz Glass Tumbler with Bamboo Lid and a straw",
+    "displayTitle": "Personalized Glass Tumbler",
     "description": "A personalized glass tumbler with cheerful designs, bamboo lid, and reusable straw.",
     "shortDescription": "A personalized glass tumbler with cheerful designs, bamboo lid, and reusable straw.",
     "price": 24.99,
@@ -238,6 +242,7 @@
   {
     "id": "teacher-stickers-vinyl-decals-for-planners-laptops-water-bottles",
     "title": "Teacher Stickers | Vinyl Decals for Planners, Laptops, Water Bottles",
+    "displayTitle": "Teacher Sticker Pack",
     "description": "Colorful teacher stickers for planners, laptops, water bottles, and classroom joy.",
     "shortDescription": "Colorful teacher stickers for planners, laptops, water bottles, and classroom joy.",
     "price": 7.99,
@@ -296,6 +301,7 @@
   {
     "id": "cozy-reader-sticker-pack-book-lover-vinyl-sticker-set",
     "title": "Cozy Reader Sticker Pack | Book Lover Vinyl Sticker Set",
+    "displayTitle": "Cozy Reader Sticker Pack",
     "description": "A cozy sticker pack for book lovers, journals, Kindles, laptops, and reading corners.",
     "shortDescription": "A cozy sticker pack for book lovers, journals, Kindles, laptops, and reading corners.",
     "price": 6.99,
@@ -353,6 +359,7 @@
   {
     "id": "personalized-boho-bookmark-buddha-sun-mandala-design-yoga-gift",
     "title": "Personalized Boho Bookmark | Buddha Sun Mandala Design, Yoga Gift",
+    "displayTitle": "Boho Bookmark",
     "description": "A peaceful boho bookmark with mandala-inspired artwork and optional personalization.",
     "shortDescription": "A peaceful boho bookmark with mandala-inspired artwork and optional personalization.",
     "price": 4.99,
@@ -432,6 +439,7 @@
   {
     "id": "personalized-paris-eiffel-tower-bookmark-london-reader-gift",
     "title": "Personalized Paris Eiffel Tower Bookmark | London Reader Gift",
+    "displayTitle": "Paris Bookmark",
     "description": "A personalized travel-inspired bookmark featuring Paris and London landmark charm.",
     "shortDescription": "A personalized travel-inspired bookmark featuring Paris and London landmark charm.",
     "price": 4.99,
@@ -507,6 +515,7 @@
   {
     "id": "personalized-slate-coasters-set-of-4-4-inch-alcohol-themed",
     "title": "Personalized Slate Coasters Set of 4 - 4 Inch, Alcohol-Themed",
+    "displayTitle": "Personalized Slate Coasters",
     "description": "A set of personalized slate coasters with playful bar-inspired designs.",
     "shortDescription": "A set of personalized slate coasters with playful bar-inspired designs.",
     "price": 36,
@@ -551,6 +560,7 @@
   {
     "id": "personalized-ceramic-coasters-set-of-4-choose-your-design",
     "title": "Personalized Ceramic Coasters - Set of 4 - Choose Your Design",
+    "displayTitle": "Personalized Ceramic Coasters",
     "description": "A polished ceramic coaster set with design options for gifting or everyday use.",
     "shortDescription": "A polished ceramic coaster set with design options for gifting or everyday use.",
     "price": 34.99,
@@ -616,6 +626,7 @@
   {
     "id": "mdf-car-coasters-2-pack-stylish-designs-for-cup-holders",
     "title": "MDF Car Coasters 2 pack - Stylish Designs for Cup Holders",
+    "displayTitle": "MDF Car Coasters",
     "description": "A practical two-pack of printed car coasters for cup holders and daily drives.",
     "shortDescription": "A practical two-pack of printed car coasters for cup holders and daily drives.",
     "price": 14.99,
@@ -682,6 +693,7 @@
   {
     "id": "neoprene-car-coasters-set-of-2-choose-your-design-cup-holder-inserts",
     "title": "Neoprene Car Coasters - Set of 2 - Choose Your Design - Cup Holder Inserts",
+    "displayTitle": "Neoprene Car Coasters",
     "description": "Soft neoprene car coasters that add personality while protecting cup holders.",
     "shortDescription": "Soft neoprene car coasters that add personality while protecting cup holders.",
     "price": 10.99,
@@ -745,6 +757,7 @@
   {
     "id": "personalized-tote-bags-wide",
     "title": "Personalized Tote Bags wide",
+    "displayTitle": "Personalized Wide Tote Bag",
     "description": "A personalized wide tote bag for errands, books, gifts, and everyday essentials.",
     "shortDescription": "A personalized wide tote bag for errands, books, gifts, and everyday essentials.",
     "price": 24.99,
@@ -807,6 +820,7 @@
   {
     "id": "customizable-ceramic-coffee-mug-personalized-11oz-sublimation-print",
     "title": "Customizable Ceramic Coffee Mug: Personalized 11oz Sublimation Print",
+    "displayTitle": "Personalized Ceramic Mug",
     "description": "A custom ceramic mug printed with your name, quote, or meaningful design.",
     "shortDescription": "A custom ceramic mug printed with your name, quote, or meaningful design.",
     "price": 19.99,
@@ -852,6 +866,7 @@
   {
     "id": "custom-pu-leather-phone-wallet-personalized-card-holder",
     "title": "Custom PU Leather Phone Wallet: Personalized Card Holder",
+    "displayTitle": "Personalized Phone Wallet",
     "description": "A personalized phone wallet for cards, IDs, and small essentials on the go.",
     "shortDescription": "A personalized phone wallet for cards, IDs, and small essentials on the go.",
     "price": 11.99,
@@ -907,6 +922,7 @@
   {
     "id": "personalized-tote-bags-long",
     "title": "Personalized Tote Bags Long",
+    "displayTitle": "Personalized Long Tote Bag",
     "description": "A personalized long tote bag with room for books, shopping, and daily carry items.",
     "shortDescription": "A personalized long tote bag with room for books, shopping, and daily carry items.",
     "price": 19.99,
