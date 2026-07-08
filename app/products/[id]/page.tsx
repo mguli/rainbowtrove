@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ExternalLink, MessageCircle, ShoppingBag } from "lucide-react";
+import { ArrowLeft, ChevronRight, ExternalLink, MessageCircle, ShoppingBag } from "lucide-react";
 import { notFound } from "next/navigation";
 import ProductGallery from "../../components/productGallery";
 import { ETSY_SHOP_URL } from "../../lib/etsy";
@@ -132,9 +132,34 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
   }
 
   const gallery = Array.from(new Set([product.image, ...(product.images || [])]));
-  const contactHref = `/contact?product=${encodeURIComponent(product.title)}`;
+  const contactHref = `/contact?productId=${encodeURIComponent(product.id)}`;
   const etsyHref = product.etsyUrl ?? ETSY_SHOP_URL;
   const productJsonLd = buildProductJsonLd(product);
+  const productName = product.displayTitle ?? product.title;
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: SITE_URL,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Shop",
+        item: `${SITE_URL}/products`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: productName,
+        item: `${SITE_URL}/products/${product.id}`,
+      },
+    ],
+  };
 
   return (
     <main className="bg-[#fffaf5] px-5 py-12 text-[#4A4A4A] lg:px-8">
@@ -144,12 +169,46 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
           __html: JSON.stringify(productJsonLd).replace(/</g, "\\u003c"),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <section className="mx-auto max-w-6xl">
-        <Link href="/products" className="text-sm font-bold text-[#9f6f68] hover:text-[#7f5d57]">
+        <nav aria-label="Breadcrumb">
+          <ol className="flex flex-wrap items-center gap-1 text-sm font-semibold text-[#7d6d62]">
+            <li>
+              <Link href="/" className="hover:text-[#9f6f68]">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">
+              <ChevronRight className="h-4 w-4" />
+            </li>
+            <li>
+              <Link href="/products" className="hover:text-[#9f6f68]">
+                Shop
+              </Link>
+            </li>
+            <li aria-hidden="true">
+              <ChevronRight className="h-4 w-4" />
+            </li>
+            <li aria-current="page" className="text-[#4A4A4A]">
+              {productName}
+            </li>
+          </ol>
+        </nav>
+
+        <Link
+          href="/products"
+          className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#9f6f68] hover:text-[#7f5d57]"
+        >
+          <ArrowLeft aria-hidden="true" className="h-4 w-4" />
           Back to products
         </Link>
 
-        <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+        <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
           <div>
             <ProductGallery images={gallery} title={product.title} />
           </div>

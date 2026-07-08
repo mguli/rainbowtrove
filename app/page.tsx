@@ -105,14 +105,17 @@ export default function Home() {
 
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {bestSellers.map((product) => (
-              <article key={product.title} className="overflow-hidden rounded-3xl bg-[#fffdf9] shadow-sm shadow-[#e5d8cb]">
+              <article
+                key={product.title}
+                className="group relative overflow-hidden rounded-3xl bg-[#fffdf9] shadow-sm shadow-[#e5d8cb] transition hover:-translate-y-1 hover:shadow-lg focus-within:outline focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-[#7e5752]"
+              >
                 <div className="relative h-64 bg-[#f3e8e2]">
                   <Image
                     src={product.image}
                     alt={product.title}
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover"
+                    className="object-cover transition group-hover:scale-[1.02]"
                   />
                   <span className="absolute left-4 top-4 rounded-full bg-[#fffaf5] px-3 py-1 text-xs font-bold text-[#9f6f68] shadow-sm">
                     {product.tag}
@@ -124,7 +127,8 @@ export default function Home() {
                     <p className="text-sm font-bold text-[#6f625c]">{product.price}</p>
                     <Link
                       href={`/products/${product.id}`}
-                      className="text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]"
+                      aria-label={`Shop now: ${product.title}`}
+                      className="after:absolute after:inset-0 text-sm font-bold text-[#9f6f68] hover:text-[#7e5752] focus-visible:outline-none"
                     >
                       Shop now
                     </Link>

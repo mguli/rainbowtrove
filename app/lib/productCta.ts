@@ -21,7 +21,7 @@ export function getProductCta(product: ProductCtaInput) {
   if (isCustom || title.includes("custom") || title.includes("personalized")) {
     return {
       label: "Personalize",
-      href: `/contact?product=${encodeURIComponent(product.title)}`,
+      href: `/contact?productId=${encodeURIComponent(product.id)}`,
     };
   }
 

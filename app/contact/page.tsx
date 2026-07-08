@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import CustomOrder from "../components/customOrder";
+import products from "../../data/products.json";
 
 export const metadata: Metadata = {
   title: "Contact and Custom Orders",
@@ -24,7 +27,18 @@ const requirements = [
   "Any size, style, or material preferences",
 ];
 
-export default function Contact() {
+type ContactPageProps = {
+  searchParams: Promise<{
+    productId?: string;
+  }>;
+};
+
+export default async function Contact({ searchParams }: ContactPageProps) {
+  const { productId } = await searchParams;
+  const sourceProduct = products.find((product) => product.id === productId);
+  const sourceProductName = sourceProduct?.displayTitle ?? sourceProduct?.title;
+  const returnHref = sourceProduct ? `/products/${sourceProduct.id}` : "/products";
+
   return (
     <main className="bg-[#fffaf5] text-[#4A4A4A]">
       <section className="bg-[linear-gradient(135deg,#fffaf5_0%,#f5e6df_50%,#e7efdf_100%)]">
@@ -43,7 +57,17 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-8 px-5 py-14 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+      <div className="mx-auto max-w-6xl px-5 pt-6 lg:px-8">
+        <Link
+          href={returnHref}
+          className="inline-flex items-center gap-2 text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]"
+        >
+          <ArrowLeft aria-hidden="true" className="h-4 w-4" />
+          {sourceProduct ? `Back to ${sourceProductName}` : "Back to products"}
+        </Link>
+      </div>
+
+      <section className="mx-auto grid max-w-6xl gap-8 px-5 pb-14 pt-5 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
         <aside className="space-y-5">
           <div className="rounded-3xl border border-[#eadbd5] bg-[#fffdf9] p-6 shadow-sm shadow-[#eadbd5]">
             <h2 className="text-xl font-extrabold">Email</h2>

@@ -21,14 +21,14 @@ export default function ProductCard({
   ctaHref,
 }: ProductCardProps) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#eadbd5] bg-[#fffdf9] shadow-sm shadow-[#e5d8cb]">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#eadbd5] bg-[#fffdf9] shadow-sm shadow-[#e5d8cb] transition hover:-translate-y-1 hover:shadow-lg focus-within:outline focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-[#7e5752]">
       <div className="relative aspect-[4/3] overflow-hidden bg-[#f3e8e2]">
         <Image
           src={image}
           alt={title}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="object-cover"
+          className="object-cover transition group-hover:scale-[1.02]"
         />
       </div>
       <div className="flex flex-1 flex-col p-5">
@@ -39,7 +39,7 @@ export default function ProductCard({
           <Link
             href={ctaHref}
             aria-label={`${ctaLabel}: ${title}`}
-            className="rounded-full bg-[#b8837a] px-4 py-2 text-sm font-bold text-[#fffaf5] transition hover:bg-[#9f6f68]"
+            className="after:absolute after:inset-0 rounded-full bg-[#b8837a] px-4 py-2 text-sm font-bold text-[#fffaf5] transition hover:bg-[#9f6f68] focus-visible:outline-none"
           >
             {ctaLabel}
           </Link>
