@@ -1,27 +1,51 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import bestSellers from "../data/bestSellers.json";
 import featuredCategories from "../data/featured.json";
 
+export const metadata: Metadata = {
+  title: "Personalized Gifts, Bookmarks, Stickers, and Keepsakes",
+  description:
+    "Shop thoughtful personalized gifts handmade by Rainbow Trove, including bookmarks, stickers, mugs, tumblers, coasters, and custom keepsakes.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Personalized Gifts, Bookmarks, Stickers, and Keepsakes",
+    description:
+      "Shop thoughtful personalized gifts handmade by Rainbow Trove for readers, teachers, sports fans, and everyday celebrations.",
+    url: "/",
+    images: [
+      {
+        url: "/images/bookmarks/paris1.png",
+        width: 500,
+        height: 620,
+        alt: "Paris themed personalized bookmark by Rainbow Trove",
+      },
+    ],
+  },
+};
+
 export default function Home() {
   return (
     <main className="bg-[#fffaf5] text-[#4A4A4A]">
       <section className="bg-[linear-gradient(135deg,#fffaf5_0%,#f5e6df_48%,#e7efdf_100%)]">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-7 px-5 py-10 sm:py-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
           <div className="max-w-2xl">
-            <p className="mb-4 inline-flex rounded-full bg-[#fffaf5]/85 px-4 py-2 text-sm font-bold text-[#9f6f68] shadow-sm shadow-[#eadbd5]">
+            <p className="mb-3 inline-flex rounded-full bg-[#fffaf5]/85 px-4 py-2 text-sm font-bold text-[#9f6f68] shadow-sm shadow-[#eadbd5]">
               Handmade gifts with a little extra sparkle
             </p>
             <h1 className="text-4xl font-extrabold leading-tight text-[#4A4A4A] sm:text-5xl lg:text-6xl">
               Thoughtful personalized gifts made with color, creativity, and care.
             </h1>
-            <p className="mt-6 text-lg leading-8 text-[#6f625c]">
+            <p className="mt-4 text-lg leading-7 text-[#6f625c]">
               Rainbow Trove makes personalized bookmarks, stickers, and keepsake bundles
               that turn everyday moments into something bright and memorable.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/products"
+                href="#best-sellers"
                 className="rounded-full bg-[#b8837a] px-6 py-3 text-center text-sm font-bold text-[#fffaf5] shadow-lg shadow-[#eadbd5] transition hover:bg-[#9f6f68]"
               >
                 Shop Best Sellers
@@ -33,7 +57,7 @@ export default function Home() {
                 Start a Custom Order
               </Link>
             </div>
-            <p className="mt-5 max-w-xl text-sm font-semibold leading-6 text-[#6f625c]">
+            <p className="mt-4 max-w-xl text-sm font-semibold leading-6 text-[#6f625c]">
               Personalized bookmarks, stickers, mugs, tumblers, coasters, and custom gifts
               made for readers, teachers, sports fans, and everyday celebrations.
             </p>
@@ -50,7 +74,7 @@ export default function Home() {
                 priority
               />
             </div>
-            <div className="grid gap-4 sm:pt-12">
+            <div className="grid gap-4 sm:pt-6">
               <div className="rounded-[2rem] bg-[#fffaf5] p-4 shadow-xl shadow-[#dfe8d7]">
                 <Image
                   src="/images/stickers/reader1.png"
@@ -74,7 +98,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f7f0e8]">
+      <section id="best-sellers" className="scroll-mt-24 bg-[#f7f0e8]">
         <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
           <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#6f8565]">Best Sellers</p>
           <h2 className="mt-3 text-3xl font-extrabold text-[#4A4A4A]">Gift-ready favorites</h2>
@@ -98,7 +122,10 @@ export default function Home() {
                   <h3 className="text-lg font-extrabold text-[#4A4A4A]">{product.title}</h3>
                   <div className="mt-4 flex items-center justify-between">
                     <p className="text-sm font-bold text-[#6f625c]">{product.price}</p>
-                    <Link href="/products" className="text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]">
+                    <Link
+                      href={`/products/${product.id}`}
+                      className="text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]"
+                    >
                       Shop now
                     </Link>
                   </div>

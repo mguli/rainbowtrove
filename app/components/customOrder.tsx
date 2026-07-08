@@ -1,3 +1,8 @@
+"use client";
+
+import { useActionState } from "react";
+import { sendCustomOrder, type ContactFormState } from "../contact/actions";
+
 const productTypes = [
   "Bookmark",
   "Sticker or decal",
@@ -8,9 +13,19 @@ const productTypes = [
   "Other custom gift",
 ];
 
+const initialState: ContactFormState = {
+  status: "idle",
+  message: "",
+};
+
 export default function CustomOrder() {
+  const [state, formAction, pending] = useActionState(sendCustomOrder, initialState);
+
   return (
-    <form className="rounded-3xl border border-[#eadbd5] bg-[#fffdf9] p-6 shadow-sm shadow-[#eadbd5]">
+    <form
+      action={formAction}
+      className="rounded-3xl border border-[#eadbd5] bg-[#fffdf9] p-6 shadow-sm shadow-[#eadbd5]"
+    >
       <div>
         <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#9f6f68]">
           Custom Order Request
@@ -23,6 +38,16 @@ export default function CustomOrder() {
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <label className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+          <span>Website</span>
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </label>
+
         <label className="block">
           <span className="text-sm font-bold text-[#6f625c]">Name</span>
           <input
@@ -49,6 +74,7 @@ export default function CustomOrder() {
           <span className="text-sm font-bold text-[#6f625c]">Product type</span>
           <select
             name="productType"
+            required
             className="mt-2 w-full rounded-2xl border border-[#eadbd5] bg-[#fffaf5] px-4 py-3 text-sm font-semibold text-[#4A4A4A] outline-none transition focus:border-[#b8837a]"
             defaultValue=""
           >
@@ -84,7 +110,7 @@ export default function CustomOrder() {
       </label>
 
       <label className="mt-4 block">
-        <span className="text-sm font-bold text-[#6f625c]">Project notes</span>
+        <span className="text-sm font-bold text-[#6f625c]">Additional order details</span>
         <textarea
           name="message"
           rows={5}
@@ -96,10 +122,22 @@ export default function CustomOrder() {
 
       <button
         type="submit"
-        className="mt-6 rounded-full bg-[#b8837a] px-6 py-3 text-sm font-bold text-[#fffaf5] shadow-lg shadow-[#eadbd5] transition hover:bg-[#9f6f68]"
+        disabled={pending}
+        className="mt-6 rounded-full bg-[#b8837a] px-6 py-3 text-sm font-bold text-[#fffaf5] shadow-lg shadow-[#eadbd5] transition hover:bg-[#9f6f68] disabled:cursor-not-allowed disabled:opacity-60"
       >
-        Send Request
+        {pending ? "Sending..." : "Send Request"}
       </button>
+
+      {state.message ? (
+        <p
+          aria-live="polite"
+          className={`mt-4 text-sm font-bold ${
+            state.status === "success" ? "text-[#5f7657]" : "text-[#9f5f58]"
+          }`}
+        >
+          {state.message}
+        </p>
+      ) : null}
     </form>
   );
 }

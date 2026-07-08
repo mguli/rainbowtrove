@@ -11,11 +11,14 @@ const navLinks = [
 export default function Navigation() {
     return (
         <header className="sticky top-0 z-50 border-b border-[#eadbd5] bg-[#fffaf5]/90 backdrop-blur">
-            <nav className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between lg:px-8">
+            <nav
+                aria-label="Primary navigation"
+                className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between lg:px-8"
+            >
                 <Link href="/" className="flex items-center gap-3 text-2xl font-extrabold tracking-wide text-[#9f6f68]">
                     <Image
                         src="/rt-logo.png"
-                        alt="Rainbow Trove logo"
+                        alt=""
                         width={44}
                         height={44}
                         className="h-11 w-11 rounded-full object-cover"

@@ -1,4 +1,20 @@
+import type { Metadata } from "next";
 import CustomOrder from "../components/customOrder";
+
+export const metadata: Metadata = {
+  title: "Contact and Custom Orders",
+  description:
+    "Contact Rainbow Trove for personalized gifts, custom bookmarks, mugs, stickers, keepsakes, teacher gifts, and special handmade requests.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Rainbow Trove for Custom Orders",
+    description:
+      "Share your custom gift idea, personalization request, theme, colors, names, dates, or special details with Rainbow Trove.",
+    url: "/contact",
+  },
+};
 
 const requirements = [
   "What product you want customized",

@@ -1,3 +1,20 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Learn about Rainbow Trove, a handmade gift shop creating personalized keepsakes, custom products, bookmarks, stickers, mugs, and thoughtful gifts.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Rainbow Trove",
+    description:
+      "Rainbow Trove creates handmade personalized gifts with care, color, creativity, and meaningful details.",
+    url: "/about",
+  },
+};
+
 const aboutSections = [
   {
     title: "Why Choose Us",

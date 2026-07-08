@@ -1,5 +1,21 @@
+import type { Metadata } from "next";
 import ProductsCatalog from "../components/productsCatalog";
 import products from "../../data/products.json";
+
+export const metadata: Metadata = {
+  title: "Shop Handmade Gifts and Personalized Keepsakes",
+  description:
+    "Browse Rainbow Trove products including personalized bookmarks, stickers, mugs, coasters, tote bags, teacher gifts, sports bookmarks, and custom keepsakes.",
+  alternates: {
+    canonical: "/products",
+  },
+  openGraph: {
+    title: "Shop Handmade Gifts and Personalized Keepsakes",
+    description:
+      "Search and filter handmade Rainbow Trove gifts for readers, teachers, sports fans, and everyday celebrations.",
+    url: "/products",
+  },
+};
 
 type ProductsPageProps = {
   searchParams: Promise<{

@@ -1,13 +1,20 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { ExternalLink, MessageCircle, ShoppingBag } from "lucide-react";
 import { notFound } from "next/navigation";
 import ProductGallery from "../../components/productGallery";
+import { ETSY_SHOP_URL } from "../../lib/etsy";
+import { SITE_NAME, SITE_URL } from "../../lib/site";
 import products from "../../../data/products.json";
 
 type Product = {
   id: string;
   title: string;
+  displayTitle?: string;
   description: string;
   shortDescription: string;
+  currency?: string;
+  quantity?: number;
   price: number;
   image: string;
   images?: string[];
@@ -16,9 +23,52 @@ type Product = {
   materials?: string[];
   collections?: string[];
   personalizable?: boolean;
+  etsyUrl?: string;
+  sku?: string;
 };
 
 const productList = products as Product[];
+
+function findProduct(id: string) {
+  return productList.find((item) => item.id === id);
+}
+
+function buildProductJsonLd(product: Product) {
+  const productName = product.displayTitle ?? product.title;
+  const productUrl = `${SITE_URL}/products/${product.id}`;
+  const offerUrl = product.etsyUrl || productUrl;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: productName,
+    alternateName: product.title,
+    description: product.shortDescription || product.description,
+    image: Array.from(new Set([product.image, ...(product.images || [])])),
+    brand: {
+      "@type": "Brand",
+      name: SITE_NAME,
+    },
+    category: product.category,
+    ...(product.sku ? { sku: product.sku } : {}),
+    url: productUrl,
+    offers: {
+      "@type": "Offer",
+      price: product.price.toFixed(2),
+      priceCurrency: product.currency ?? "USD",
+      availability:
+        product.quantity && product.quantity > 0
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
+      itemCondition: "https://schema.org/NewCondition",
+      url: offerUrl,
+      seller: {
+        "@type": "Organization",
+        name: SITE_NAME,
+      },
+    },
+  };
+}
 
 export function generateStaticParams() {
   return productList.map((product) => ({
@@ -32,9 +82,50 @@ type ProductDetailsPageProps = {
   }>;
 };
 
+export async function generateMetadata({ params }: ProductDetailsPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const product = findProduct(id);
+
+  if (!product) {
+    return {
+      title: "Product Not Found",
+      description: `This ${SITE_NAME} product could not be found.`,
+    };
+  }
+
+  const productName = product.displayTitle ?? product.title;
+  const description = product.shortDescription || product.description;
+
+  return {
+    title: productName,
+    description,
+    alternates: {
+      canonical: `/products/${product.id}`,
+    },
+    openGraph: {
+      title: `${productName} | ${SITE_NAME}`,
+      description,
+      url: `/products/${product.id}`,
+      type: "website",
+      images: [
+        {
+          url: product.image,
+          alt: productName,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${productName} | ${SITE_NAME}`,
+      description,
+      images: [product.image],
+    },
+  };
+}
+
 export default async function ProductDetailsPage({ params }: ProductDetailsPageProps) {
   const { id } = await params;
-  const product = productList.find((item) => item.id === id);
+  const product = findProduct(id);
 
   if (!product) {
     notFound();
@@ -42,9 +133,17 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
 
   const gallery = Array.from(new Set([product.image, ...(product.images || [])]));
   const contactHref = `/contact?product=${encodeURIComponent(product.title)}`;
+  const etsyHref = product.etsyUrl ?? ETSY_SHOP_URL;
+  const productJsonLd = buildProductJsonLd(product);
 
   return (
     <main className="bg-[#fffaf5] px-5 py-12 text-[#4A4A4A] lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <section className="mx-auto max-w-6xl">
         <Link href="/products" className="text-sm font-bold text-[#9f6f68] hover:text-[#7f5d57]">
           Back to products
@@ -67,12 +166,32 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
               ${product.price.toFixed(2)}
             </p>
 
-            <Link
-              href={contactHref}
-              className="mt-7 inline-flex rounded-full bg-[#b8837a] px-6 py-3 text-sm font-bold text-[#fffaf5] transition hover:bg-[#9f6f68]"
-            >
-              {product.personalizable ? "Personalize this gift" : "Ask about this item"}
-            </Link>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={etsyHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#b8837a] px-6 py-3 text-sm font-bold text-[#fffaf5] transition hover:bg-[#9f6f68]"
+              >
+                <ShoppingBag aria-hidden="true" className="h-4 w-4" />
+                {product.personalizable ? "Personalize on Etsy" : "Buy on Etsy"}
+                <ExternalLink aria-hidden="true" className="h-4 w-4" />
+              </a>
+              <Link
+                href={contactHref}
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d9c9bd] bg-[#fffaf5] px-6 py-3 text-sm font-bold text-[#8a7467] transition hover:bg-[#f3e8e2]"
+              >
+                <MessageCircle aria-hidden="true" className="h-4 w-4" />
+                Ask a question
+              </Link>
+            </div>
+
+            {!product.etsyUrl && (
+              <p className="mt-3 text-sm font-semibold leading-6 text-[#8a7467]">
+                This opens the Rainbow Trove Etsy shop. Add a product-specific Etsy link
+                later to send customers straight to this listing.
+              </p>
+            )}
 
             {product.materials?.length ? (
               <div className="mt-8">
