@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ChevronRight, ExternalLink, MessageCircle, ShoppingBag } from "lucide-react";
+import { ChevronRight, ExternalLink, MessageCircle, ShoppingBag } from "lucide-react";
 import { notFound } from "next/navigation";
 import ProductGallery from "../../components/productGallery";
 import { ETSY_SHOP_URL } from "../../lib/etsy";
@@ -200,15 +200,7 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
           </ol>
         </nav>
 
-        <Link
-          href="/products"
-          className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-[#9f6f68] hover:text-[#7f5d57]"
-        >
-          <ArrowLeft aria-hidden="true" className="h-4 w-4" />
-          Back to products
-        </Link>
-
-        <div className="mt-6 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
+        <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
           <div>
             <ProductGallery images={gallery} title={product.title} />
           </div>
