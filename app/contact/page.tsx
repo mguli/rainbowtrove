@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import CustomOrder from "../components/customOrder";
 import products from "../../data/products.json";
 
@@ -27,6 +27,22 @@ const requirements = [
   "Any size, style, or material preferences",
 ];
 
+function getProductType(title: string, category: string) {
+  const searchableText = `${title} ${category}`.toLowerCase();
+
+  if (searchableText.includes("bookmark")) return "Bookmark";
+  if (searchableText.includes("sticker") || searchableText.includes("decal")) {
+    return "Sticker or decal";
+  }
+  if (searchableText.includes("mug") || searchableText.includes("tumbler")) {
+    return "Mug or tumbler";
+  }
+  if (searchableText.includes("coaster")) return "Coaster";
+  if (searchableText.includes("tote")) return "Tote bag";
+  if (searchableText.includes("phone wallet")) return "Phone wallet";
+  return "Other custom gift";
+}
+
 type ContactPageProps = {
   searchParams: Promise<{
     productId?: string;
@@ -36,8 +52,14 @@ type ContactPageProps = {
 export default async function Contact({ searchParams }: ContactPageProps) {
   const { productId } = await searchParams;
   const sourceProduct = products.find((product) => product.id === productId);
-  const sourceProductName = sourceProduct?.displayTitle ?? sourceProduct?.title;
-  const returnHref = sourceProduct ? `/products/${sourceProduct.id}` : "/products";
+  const productContext = sourceProduct
+    ? {
+        name: sourceProduct.displayTitle ?? sourceProduct.title,
+        price: sourceProduct.price,
+        href: `/products/${sourceProduct.id}`,
+        productType: getProductType(sourceProduct.title, sourceProduct.category),
+      }
+    : undefined;
 
   return (
     <main className="bg-[#fffaf5] text-[#4A4A4A]">
@@ -58,13 +80,21 @@ export default async function Contact({ searchParams }: ContactPageProps) {
       </section>
 
       <div className="mx-auto max-w-6xl px-5 pt-6 lg:px-8">
-        <Link
-          href={returnHref}
-          className="inline-flex items-center gap-2 text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]"
-        >
-          <ArrowLeft aria-hidden="true" className="h-4 w-4" />
-          {sourceProduct ? `Back to ${sourceProductName}` : "Back to products"}
-        </Link>
+        <nav aria-label="Breadcrumb">
+          <ol className="flex items-center gap-1 text-sm font-semibold text-[#7d6d62]">
+            <li>
+              <Link href="/" className="hover:text-[#9f6f68]">
+                Home
+              </Link>
+            </li>
+            <li aria-hidden="true">
+              <ChevronRight className="h-4 w-4" />
+            </li>
+            <li aria-current="page" className="text-[#4A4A4A]">
+              Custom Orders
+            </li>
+          </ol>
+        </nav>
       </div>
 
       <section className="mx-auto grid max-w-6xl gap-8 px-5 pb-14 pt-5 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
@@ -95,7 +125,7 @@ export default async function Contact({ searchParams }: ContactPageProps) {
           </div>
         </aside>
 
-        <CustomOrder />
+        <CustomOrder productContext={productContext} />
       </section>
     </main>
   );

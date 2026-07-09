@@ -34,6 +34,7 @@ export async function sendCustomOrder(
 
   const name = getField(formData, "name", 100);
   const email = getField(formData, "email", 320);
+  const requestedProduct = getField(formData, "requestedProduct", 200);
   const productType = getField(formData, "productType", 100);
   const neededBy = getField(formData, "neededBy", 30);
   const personalization = getField(formData, "personalization", 3000);
@@ -60,6 +61,7 @@ export async function sendCustomOrder(
     `New custom order request from ${name}`,
     "",
     `Customer email: ${email}`,
+    `Product: ${requestedProduct || "General custom request"}`,
     `Product type: ${productType}`,
     `Needed by: ${neededBy || "Not specified"}`,
     "",
@@ -75,7 +77,7 @@ export async function sendCustomOrder(
       from: senderEmail,
       to: recipientEmail,
       replyTo: email,
-      subject: `Custom order request: ${productType} for ${name}`,
+      subject: `Custom order request: ${requestedProduct || productType} for ${name}`,
       text: emailBody,
     });
 

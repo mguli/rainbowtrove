@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ExternalLink, Star } from "lucide-react";
 import bestSellers from "../data/bestSellers.json";
 import featuredCategories from "../data/featured.json";
+import reviews from "../data/reviews.json";
 
 export const metadata: Metadata = {
   title: "Personalized Gifts, Bookmarks, Stickers, and Keepsakes",
@@ -137,6 +139,63 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-[#fffaf5]">
+        <div className="mx-auto max-w-6xl px-5 py-16 lg:px-8">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#9f6f68]">
+                Customer Reviews
+              </p>
+              <h2 className="mt-3 text-3xl font-extrabold text-[#4A4A4A]">
+                Kind words from customers
+              </h2>
+            </div>
+            <a
+              href="https://www.etsy.com/shop/TheRainbowTrove#reviews"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]"
+            >
+              Read all reviews on Etsy
+              <ExternalLink aria-hidden="true" className="h-4 w-4" />
+            </a>
+          </div>
+
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {reviews.map((review) => (
+              <article
+                key={review.id}
+                className="rounded-lg border border-[#eadbd5] bg-[#fffdf9] p-6 shadow-sm shadow-[#eadbd5]"
+              >
+                <div
+                  className="flex gap-1 text-[#b8837a]"
+                  aria-label={`${review.rating} out of 5 stars`}
+                >
+                  {Array.from({ length: review.rating }).map((_, index) => (
+                    <Star
+                      key={index}
+                      aria-hidden="true"
+                      className="h-4 w-4 fill-current"
+                    />
+                  ))}
+                </div>
+                <blockquote className="mt-5 text-lg font-semibold leading-8 text-[#4A4A4A]">
+                  “{review.quote}”
+                </blockquote>
+                <footer className="mt-5 text-sm text-[#6f625c]">
+                  <p className="font-bold">{review.customer}</p>
+                  <p className="mt-1">{review.product} · Verified Etsy review</p>
+                </footer>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-6 text-sm font-semibold text-[#6f625c]">
+            Rainbow Trove is rated 5.0 from 4 reviews on Etsy.
+          </p>
         </div>
       </section>
 

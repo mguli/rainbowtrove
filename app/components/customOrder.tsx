@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useActionState } from "react";
 import { sendCustomOrder, type ContactFormState } from "../contact/actions";
 
@@ -18,7 +19,16 @@ const initialState: ContactFormState = {
   message: "",
 };
 
-export default function CustomOrder() {
+type CustomOrderProps = {
+  productContext?: {
+    name: string;
+    price: number;
+    href: string;
+    productType: string;
+  };
+};
+
+export default function CustomOrder({ productContext }: CustomOrderProps) {
   const [state, formAction, pending] = useActionState(sendCustomOrder, initialState);
 
   return (
@@ -36,6 +46,29 @@ export default function CustomOrder() {
           We will follow up by email with questions, options, and a quote.
         </p>
       </div>
+
+      {productContext ? (
+        <div className="mt-6 border-l-4 border-[#b8837a] bg-[#f8efea] px-4 py-3">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#9f6f68]">
+            Customizing
+          </p>
+          <div className="mt-1 flex flex-wrap items-baseline justify-between gap-2">
+            <div>
+              <p className="font-extrabold text-[#4A4A4A]">{productContext.name}</p>
+              <p className="mt-1 text-sm font-bold text-[#9f6f68]">
+                ${productContext.price.toFixed(2)}
+              </p>
+            </div>
+            <Link
+              href={productContext.href}
+              className="text-sm font-bold text-[#9f6f68] hover:text-[#7e5752]"
+            >
+              View product
+            </Link>
+          </div>
+          <input type="hidden" name="requestedProduct" value={productContext.name} />
+        </div>
+      ) : null}
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
         <label className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
@@ -76,7 +109,7 @@ export default function CustomOrder() {
             name="productType"
             required
             className="mt-2 w-full rounded-2xl border border-[#eadbd5] bg-[#fffaf5] px-4 py-3 text-sm font-semibold text-[#4A4A4A] outline-none transition focus:border-[#b8837a]"
-            defaultValue=""
+            defaultValue={productContext?.productType ?? ""}
           >
             <option value="" disabled>
               Choose a product
@@ -120,13 +153,18 @@ export default function CustomOrder() {
         />
       </label>
 
-      <button
-        type="submit"
-        disabled={pending}
-        className="mt-6 rounded-full bg-[#b8837a] px-6 py-3 text-sm font-bold text-[#fffaf5] shadow-lg shadow-[#eadbd5] transition hover:bg-[#9f6f68] disabled:cursor-not-allowed disabled:opacity-60"
-      >
-        {pending ? "Sending..." : "Send Request"}
-      </button>
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <button
+          type="submit"
+          disabled={pending}
+          className="rounded-full bg-[#b8837a] px-6 py-3 text-sm font-bold text-[#fffaf5] shadow-lg shadow-[#eadbd5] transition hover:bg-[#9f6f68] disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {pending ? "Sending..." : "Send Request"}
+        </button>
+        <p className="text-sm font-semibold text-[#6f625c]">
+          We&apos;ll respond within 1–2 business days.
+        </p>
+      </div>
 
       {state.message ? (
         <p

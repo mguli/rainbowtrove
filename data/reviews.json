@@ -1,0 +1,23 @@
+[
+  {
+    "id": "etsy-custom-shirts-pooja",
+    "quote": "The design and wording turned out perfect.",
+    "customer": "Pooja",
+    "product": "Custom Bachelorette T-Shirts",
+    "rating": 5
+  },
+  {
+    "id": "etsy-paris-bookmark-wonderful",
+    "quote": "This is a Wonderful bookmark!",
+    "customer": "Etsy buyer",
+    "product": "Paris Bookmark",
+    "rating": 5
+  },
+  {
+    "id": "etsy-custom-coasters-quality",
+    "quote": "The custom coasters I ordered were really well made.",
+    "customer": "Rahul",
+    "product": "Personalized Coasters",
+    "rating": 5
+  }
+]

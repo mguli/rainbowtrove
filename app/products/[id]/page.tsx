@@ -265,7 +265,7 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
             {product.tags?.length ? (
               <div className="mt-8">
                 <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-[#9f6f68]">
-                  Good for
+                  Perfect for
                 </h2>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {product.tags.slice(0, 8).map((tag) => (
