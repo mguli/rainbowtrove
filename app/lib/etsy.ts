@@ -1,1 +1,1 @@
-export const ETSY_SHOP_URL = "https://www.etsy.com/shop/RainbowTrove";
+export const ETSY_SHOP_URL = "https://www.etsy.com/shop/TheRainbowTrove";

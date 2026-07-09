@@ -202,7 +202,7 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
 
         <div className="mt-8 grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-start">
           <div>
-            <ProductGallery images={gallery} title={product.title} />
+            <ProductGallery images={gallery} title={productName} />
           </div>
 
           <div className="rounded-3xl border border-[#eadbd5] bg-[#fffdf9] p-6 shadow-sm shadow-[#eadbd5] lg:p-8">
@@ -210,7 +210,7 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
               {product.category}
             </p>
             <h1 className="mt-3 text-3xl font-extrabold leading-tight text-[#4A4A4A] lg:text-4xl">
-              {product.title}
+              {productName}
             </h1>
             <p className="mt-5 text-lg leading-8 text-[#6f625c]">{product.description}</p>
             <p className="mt-6 text-2xl font-extrabold text-[#9f6f68]">
