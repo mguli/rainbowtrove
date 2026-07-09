@@ -20,10 +20,11 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/images/bookmarks/paris1.png",
+        url: "/rt-logo.png",
         width: 500,
-        height: 620,
-        alt: "Paris themed personalized bookmark by Rainbow Trove",
+        height: 500,
+        alt: "Rainbow Trove logo",
+        type: "image/png",
       },
     ],
   },
