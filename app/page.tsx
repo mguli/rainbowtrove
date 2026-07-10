@@ -90,17 +90,17 @@ export default function Home() {
             <div className="grid gap-4 sm:pt-6">
               <div className="rounded-[2rem] bg-[#fffaf5] p-4 shadow-xl shadow-[#dfe8d7]">
                 <Image
-                  src="https://i.etsystatic.com/44513884/r/il/994ecc/8165976189/il_fullxfull.8165976189_q92m.jpg"
-                  alt="Personalized Dad Nutrition Facts mug"
+                  src="https://i.etsystatic.com/44513884/r/il/1e8a15/6706619514/il_fullxfull.6706619514_fyh9.jpg"
+                  alt="Motivational personalized ceramic mug"
                   width={420}
                   height={420}
-                  className="h-44 w-full rounded-[1.5rem] object-cover"
+                  className="h-56 w-full rounded-[1.5rem] object-cover sm:h-60"
                 />
               </div>
               <div className="overflow-hidden rounded-[2rem] bg-[#fffaf5] p-4 shadow-xl shadow-[#eadbd5]">
                 <Image
-                  src="https://i.etsystatic.com/44513884/r/il/b52516/5953979371/il_fullxfull.5953979371_9p71.jpg"
-                  alt="Smiley car coasters"
+                  src="https://i.etsystatic.com/44513884/r/il/813274/5997428115/il_fullxfull.5997428115_iczm.jpg"
+                  alt="Retro checkered car coasters"
                   width={420}
                   height={420}
                   className="h-44 w-full rounded-[1.5rem] object-cover"
