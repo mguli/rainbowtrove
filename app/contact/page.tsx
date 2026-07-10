@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import CustomOrder from "../components/customOrder";
+import { isDesignChoiceProduct } from "../lib/productCta";
 import products from "../../data/products.json";
 
 export const metadata: Metadata = {
@@ -27,7 +28,15 @@ const requirements = [
   "Any size, style, or material preferences",
 ];
 
-function getProductType(title: string, category: string) {
+function getProductType(product: { title: string; category: string; tags?: string[] }) {
+  if (isDesignChoiceProduct(product)) {
+    const searchableText = `${product.title} ${product.category}`.toLowerCase();
+
+    if (searchableText.includes("car coaster")) return "Car coasters";
+    if (searchableText.includes("ceramic coaster")) return "Ceramic coasters";
+  }
+
+  const { title, category } = product;
   const searchableText = `${title} ${category}`.toLowerCase();
 
   if (searchableText.includes("bookmark")) return "Bookmark";
@@ -41,6 +50,23 @@ function getProductType(title: string, category: string) {
   if (searchableText.includes("tote")) return "Tote bag";
   if (searchableText.includes("phone wallet")) return "Phone wallet";
   return "Other custom gift";
+}
+
+function getDesignOptions(product: {
+  designImages?: Record<string, string | undefined>;
+  variations?: { name: string; values: string[] }[];
+}) {
+  const designValues =
+    product.variations?.find((variation) => {
+      const name = variation.name.toLowerCase();
+      return name.includes("design") || name.includes("style choice");
+    })
+      ?.values ?? [];
+
+  return designValues.map((label) => ({
+    label,
+    image: product.designImages?.[label],
+  }));
 }
 
 type ContactPageProps = {
@@ -57,7 +83,9 @@ export default async function Contact({ searchParams }: ContactPageProps) {
         name: sourceProduct.displayTitle ?? sourceProduct.title,
         price: sourceProduct.price,
         href: `/products/${sourceProduct.id}`,
-        productType: getProductType(sourceProduct.title, sourceProduct.category),
+        image: sourceProduct.image,
+        productType: getProductType(sourceProduct),
+        designOptions: getDesignOptions(sourceProduct),
       }
     : undefined;
 
@@ -81,7 +109,7 @@ export default async function Contact({ searchParams }: ContactPageProps) {
 
       <div className="mx-auto max-w-6xl px-5 pt-6 lg:px-8">
         <nav aria-label="Breadcrumb">
-          <ol className="flex items-center gap-1 text-sm font-semibold text-[#7d6d62]">
+          <ol className="flex flex-wrap items-center gap-1 text-sm font-semibold text-[#7d6d62]">
             <li>
               <Link href="/" className="hover:text-[#9f6f68]">
                 Home
@@ -90,6 +118,26 @@ export default async function Contact({ searchParams }: ContactPageProps) {
             <li aria-hidden="true">
               <ChevronRight className="h-4 w-4" />
             </li>
+            {productContext ? (
+              <>
+                <li>
+                  <Link href="/products" className="hover:text-[#9f6f68]">
+                    Shop
+                  </Link>
+                </li>
+                <li aria-hidden="true">
+                  <ChevronRight className="h-4 w-4" />
+                </li>
+                <li>
+                  <Link href={productContext.href} className="hover:text-[#9f6f68]">
+                    {productContext.name}
+                  </Link>
+                </li>
+                <li aria-hidden="true">
+                  <ChevronRight className="h-4 w-4" />
+                </li>
+              </>
+            ) : null}
             <li aria-current="page" className="text-[#4A4A4A]">
               Custom Orders
             </li>

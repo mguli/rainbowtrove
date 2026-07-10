@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: "/rt-logo.png",
-        width: 512,
-        height: 512,
+        url: "/rt-logo-2026.png",
+        width: 1254,
+        height: 1254,
         alt: `${SITE_NAME} logo`,
       },
     ],
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: `${SITE_NAME} | Handmade Personalized Gifts`,
     description: SITE_DESCRIPTION,
-    images: ["/rt-logo.png"],
+    images: ["/rt-logo-2026.png"],
   },
 };
 

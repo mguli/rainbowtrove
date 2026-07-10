@@ -40,7 +40,7 @@
     "variations": [
       {
         "type": "Custom Property",
-        "name": "Style choice",
+        "name": "Design",
         "values": [
           "All Soccer",
           "Basketball",
@@ -50,13 +50,26 @@
       },
       {
         "type": "Custom Property",
-        "name": "Size &amp; look",
+        "name": "Finish",
         "values": [
-          "Glitter 2x6",
-          "NoGlitter 2x6"
+          "Glitter",
+          "No Glitter"
+        ]
+      },
+      {
+        "type": "Custom Property",
+        "name": "Size",
+        "values": [
+          "2x6"
         ]
       }
     ],
+    "designImages": {
+      "All Soccer": "https://i.etsystatic.com/44513884/r/il/b4d5b3/5724379004/il_fullxfull.5724379004_t2nl.jpg",
+      "Basketball": "https://i.etsystatic.com/44513884/r/il/1a40a9/5724385748/il_fullxfull.5724385748_b6qf.jpg",
+      "Football Jerseys": "https://i.etsystatic.com/44513884/r/il/04f92b/5724378892/il_fullxfull.5724378892_t9yu.jpg",
+      "Football Helmets": "https://i.etsystatic.com/44513884/r/il/b4d5b3/5724379004/il_fullxfull.5724379004_t2nl.jpg"
+    },
     "sku": "B002",
     "source": "etsy-csv",
     "collections": [
@@ -170,10 +183,21 @@
           "Mushroom",
           "Space",
           "Umbrellas",
-          "Women&#39;s Day"
+          "Women's Day"
         ]
       }
     ],
+    "designImages": {
+      "Multi Cat": "https://i.etsystatic.com/44513884/r/il/697bf6/5880214945/il_fullxfull.5880214945_499j.jpg",
+      "Space": "https://i.etsystatic.com/44513884/r/il/254fb2/5832119106/il_fullxfull.5832119106_ciz9.jpg",
+      "Dog Love": "https://i.etsystatic.com/44513884/r/il/814dba/5880212955/il_fullxfull.5880212955_rpp2.jpg",
+      "Geometric": "https://i.etsystatic.com/44513884/r/il/09c46f/5880212631/il_fullxfull.5880212631_jzmo.jpg",
+      "Women's Day": "https://i.etsystatic.com/44513884/r/il/67e71f/5880213315/il_fullxfull.5880213315_fyy6.jpg",
+      "Multi Dog": "https://i.etsystatic.com/44513884/r/il/f49880/5880213563/il_fullxfull.5880213563_ffbc.jpg",
+      "Cats Rule the World": "https://i.etsystatic.com/44513884/r/il/8b50ba/5832118528/il_fullxfull.5832118528_lwdf.jpg",
+      "Mushroom": "https://i.etsystatic.com/44513884/r/il/5e2baf/5880214151/il_fullxfull.5880214151_as1w.jpg",
+      "Umbrellas": "https://i.etsystatic.com/44513884/r/il/19f595/5832119370/il_fullxfull.5832119370_fwub.jpg"
+    },
     "sku": "BM005,BM010,BM006,BM004,BM008,BM003,BM002,BM001,BM009",
     "source": "etsy-csv",
     "collections": [
@@ -234,6 +258,11 @@
         ]
       }
     ],
+    "designImages": {
+      "Flowers": "https://i.etsystatic.com/44513884/r/il/cbe42f/5832098878/il_fullxfull.5832098878_hv7v.jpg",
+      "Hearts": "https://i.etsystatic.com/44513884/r/il/e0e42c/5880194117/il_fullxfull.5880194117_7ygh.jpg",
+      "Iced Coffee": "https://i.etsystatic.com/44513884/r/il/d20e62/5880194109/il_fullxfull.5880194109_4060.jpg"
+    },
     "sku": "TM002,TM001,TM003",
     "source": "etsy-csv",
     "collections": [
@@ -409,31 +438,41 @@
     "variations": [
       {
         "type": "Custom Property",
-        "name": "Style",
+        "name": "Design",
         "values": [
-          "Buddha - Glitter",
-          "Face - Glitter",
-          "Hearts - Glitter",
-          "Leaves - Glitter",
-          "Read - Glitter",
-          "Sun - Glitter",
-          "Buddha - Non Glitter",
-          "Face - Non Glitter",
-          "Hearts - Non Glitter",
-          "Leaves - Non Glitter",
-          "Read - Non Glitter",
-          "Sun - Non Glitter"
+          "Buddha",
+          "Face",
+          "Hearts",
+          "Leaves",
+          "Read",
+          "Sun"
+        ]
+      },
+      {
+        "type": "Custom Property",
+        "name": "Finish",
+        "values": [
+          "Glitter",
+          "No Glitter"
         ]
       },
       {
         "type": "Custom Property",
         "name": "Size",
         "values": [
-          "2X6 inches",
-          "2X8 inches"
+          "2x6",
+          "2x8"
         ]
       }
     ],
+    "designImages": {
+      "Buddha": "https://i.etsystatic.com/44513884/r/il/2c6f0b/5725508781/il_fullxfull.5725508781_lq3t.jpg",
+      "Face": "https://i.etsystatic.com/44513884/r/il/b4afe1/5725508685/il_fullxfull.5725508685_o7ve.jpg",
+      "Hearts": "https://i.etsystatic.com/44513884/r/il/fdba47/5725508747/il_fullxfull.5725508747_5eup.jpg",
+      "Leaves": "https://i.etsystatic.com/44513884/r/il/cb3377/5725508775/il_fullxfull.5725508775_si3o.jpg",
+      "Read": "https://i.etsystatic.com/44513884/r/il/6c0f98/5677458610/il_fullxfull.5677458610_f0nn.jpg",
+      "Sun": "https://i.etsystatic.com/44513884/r/il/ceef74/5677458612/il_fullxfull.5677458612_5fla.jpg"
+    },
     "sku": "B001",
     "source": "etsy-csv",
     "collections": [
@@ -490,27 +529,40 @@
     "variations": [
       {
         "type": "Custom Property",
-        "name": "Design choices",
+        "name": "Design",
         "values": [
           "Clock - Spring",
+          "Clock - London",
           "Clock - Van Gogh",
-          "Eiffel - withpeople",
-          "Eiffel - spring",
-          "Eiffel - fall",
-          "Eiffel-cherryblosoms",
-          "Eiffel-lights",
-          "Eiffel-cafe"
+          "Eiffel - Spring",
+          "Eiffel - Fall",
+          "Eiffel - Cherry Blossoms",
+          "Eiffel - Lights",
+          "Eiffel - Cafe"
         ]
       },
       {
         "type": "Custom Property",
-        "name": "Size &amp; look Choices",
-        "values": [
-          "NoGlitter 2x6",
-          "Glitter 2x6"
-        ]
+        "name": "Finish",
+        "values": ["No Glitter", "Glitter"]
+      },
+      {
+        "type": "Custom Property",
+        "name": "Size",
+        "values": ["2x6"]
       }
     ],
+    
+    "designImages": {
+      "Clock - Spring": "https://i.etsystatic.com/44513884/r/il/66aba3/5724324144/il_fullxfull.5724324144_ng2r.jpg",
+      "Clock - London": "https://i.etsystatic.com/44513884/r/il/ae4360/5772393133/il_fullxfull.5772393133_dwbx.jpg",
+      "Clock - Van Gogh": "https://i.etsystatic.com/44513884/r/il/4f39fa/5772393129/il_fullxfull.5772393129_bwhm.jpg",
+      "Eiffel - Spring": "https://i.etsystatic.com/44513884/r/il/3a0a49/5724324150/il_fullxfull.5724324150_9w3h.jpg",
+      "Eiffel - Fall": "https://i.etsystatic.com/44513884/r/il/182981/5810811251/il_fullxfull.5810811251_sjiy.jpg",
+      "Eiffel - Cherry Blossoms": "https://i.etsystatic.com/44513884/r/il/733da6/5762743254/il_fullxfull.5762743254_n88t.jpg",
+      "Eiffel - Cafe": "https://i.etsystatic.com/44513884/r/il/8b27cd/5762743252/il_fullxfull.5762743252_4wgf.jpg",
+      "Eiffel - Lights": "https://i.etsystatic.com/44513884/r/il/b3c630/5762743262/il_fullxfull.5762743262_cl3n.jpg"
+    },
     "sku": "",
     "source": "etsy-csv",
     "collections": [
@@ -614,16 +666,25 @@
         "type": "Custom Property",
         "name": "Design",
         "values": [
-          "Beer theme - Round",
-          "Coffee theme - Round",
-          "GeometricBlue-Round",
-          "Leaves - Square",
-          "Coffee theme- Square",
-          "GeometricGray-Round",
-          "Boho design - Round"
+          "Beer Quotes",
+          "Black & White Geometric",
+          "Blue Dots & Triangles",
+          "Coffee / Latte Art",
+          "Blue & Green Hearts",
+          "Pop Art Coffee",
+          "Funny Telugu Quotes"
         ]
       }
     ],
+    "designImages": {
+      "Beer Quotes": "https://i.etsystatic.com/44513884/r/il/439a8f/5880230577/il_fullxfull.5880230577_n43z.jpg",
+      "Black & White Geometric": "https://i.etsystatic.com/44513884/r/il/5eb6c2/5693167271/il_fullxfull.5693167271_d03u.jpg",
+      "Blue Dots & Triangles": "https://i.etsystatic.com/44513884/r/il/2605cf/5832137160/il_fullxfull.5832137160_acig.jpg",
+      "Coffee / Latte Art": "https://i.etsystatic.com/44513884/r/il/7b4e7f/5832138692/il_fullxfull.5832138692_bh5u.jpg",
+      "Blue & Green Hearts": "https://i.etsystatic.com/44513884/r/il/1e0bcc/5832140624/il_fullxfull.5832140624_oo1m.jpg",
+      "Pop Art Coffee": "https://i.etsystatic.com/44513884/r/il/e6ab2f/5880236097/il_fullxfull.5880236097_t5oz.jpg",
+      "Funny Telugu Quotes": "https://i.etsystatic.com/44513884/r/il/630146/6325001397/il_fullxfull.6325001397_1ycm.jpg"
+    },
     "sku": "C003,C001,C002,C005,C006,C004,C007",
     "source": "etsy-csv",
     "collections": [
@@ -679,19 +740,27 @@
     "variations": [
       {
         "type": "Custom Property",
-        "name": "Designs",
+        "name": "Design",
         "values": [
           "Smilies",
           "Boho leaves",
           "Geometric wavy",
-          "Hearts",
+          "Retro smiles",
           "Flower smilies",
-          "Funny smilies",
-          "Scooter & Rickshaw",
-          "Yellow smilies"
+          "Retro checkered",
+          "Scooter & Rickshaw"
         ]
       }
     ],
+    "designImages": {
+      "Smilies": "https://i.etsystatic.com/44513884/r/il/b52516/5953979371/il_fullxfull.5953979371_9p71.jpg",
+      "Boho leaves": "https://i.etsystatic.com/44513884/r/il/9b1d1b/5953979377/il_fullxfull.5953979377_hzq2.jpg",
+      "Geometric wavy": "https://i.etsystatic.com/44513884/r/il/5138b5/5905896328/il_fullxfull.5905896328_15wv.jpg",
+      "Retro smiles": "https://i.etsystatic.com/44513884/r/il/2b280f/5953979379/il_fullxfull.5953979379_6r2y.jpg",
+      "Flower smilies": "https://i.etsystatic.com/44513884/r/il/e6dc68/6754478945/il_fullxfull.6754478945_n9r7.jpg",
+      "Retro checkered": "https://i.etsystatic.com/44513884/r/il/813274/5997428115/il_fullxfull.5997428115_iczm.jpg",
+      "Scooter & Rickshaw": "https://i.etsystatic.com/44513884/r/il/5d43f4/5949352144/il_fullxfull.5949352144_5dxe.jpg"
+    },
     "sku": "CC006,CC007,CC008,CC009",
     "source": "etsy-csv",
     "collections": [
@@ -750,13 +819,18 @@
         "name": "Design",
         "values": [
           "Birds",
-          "Dandelions",
           "Checkered Blue",
           "Checkered Purple",
           "Boho"
         ]
       }
     ],
+    "designImages": {
+      "Birds": "https://i.etsystatic.com/44513884/r/il/48d50e/5832176830/il_fullxfull.5832176830_hi1w.jpg",
+      "Checkered Blue": "https://i.etsystatic.com/44513884/r/il/09d57d/5880272747/il_fullxfull.5880272747_dei4.jpg",
+      "Checkered Purple": "https://i.etsystatic.com/44513884/r/il/0eb86c/5880272691/il_fullxfull.5880272691_1jnd.jpg",
+      "Boho": "https://i.etsystatic.com/44513884/r/il/526d0e/5880272695/il_fullxfull.5880272695_ouxs.jpg"
+    },
     "sku": "CC001,CC003,CC005,CC002,CC004",
     "source": "etsy-csv",
     "collections": [
@@ -811,16 +885,21 @@
     "variations": [
       {
         "type": "Custom Property",
-        "name": "Designs",
+        "name": "Design",
         "values": [
           "Just Chill",
           "Mushroom",
           "Fresh Produce",
-          "Succulent",
-          "Awesome crap"
+          "Succulent"
         ]
       }
     ],
+    "designImages": {
+      "Just Chill": "https://i.etsystatic.com/44513884/r/il/f44d94/5880251129/il_fullxfull.5880251129_s07n.jpg",
+      "Mushroom": "https://i.etsystatic.com/44513884/r/il/d82f03/5880251421/il_fullxfull.5880251421_8hmh.jpg",
+      "Fresh Produce": "https://i.etsystatic.com/44513884/r/il/968bc7/5880251989/il_fullxfull.5880251989_r40k.jpg",
+      "Succulent": "https://i.etsystatic.com/44513884/r/il/c4bc9b/5832156696/il_fullxfull.5832156696_eo32.jpg"
+    },
     "sku": "TB003,TB001,TB004,TB002,TB006",
     "source": "etsy-csv",
     "collections": [
@@ -858,7 +937,7 @@
     "variations": [
       {
         "type": "Custom Property",
-        "name": "Designs",
+        "name": "Design",
         "values": [
           "Birds",
           "Smiley",
@@ -868,6 +947,13 @@
         ]
       }
     ],
+    "designImages": {
+      "Birds": "https://i.etsystatic.com/44513884/r/il/267a9e/6754662671/il_fullxfull.6754662671_17zs.jpg",
+      "Smiley": "https://i.etsystatic.com/44513884/r/il/072ce2/6706619512/il_fullxfull.6706619512_34jr.jpg",
+      "Coffee with beans": "https://i.etsystatic.com/44513884/r/il/babd8e/6706619516/il_fullxfull.6706619516_369g.jpg",
+      "Coffee before after": "https://i.etsystatic.com/44513884/r/il/536f72/6754662677/il_fullxfull.6754662677_awzg.jpg",
+      "Motivational": "https://i.etsystatic.com/44513884/r/il/1e8a15/6706619514/il_fullxfull.6706619514_fyh9.jpg"
+    },
     "sku": "",
     "source": "etsy-csv",
     "collections": [
@@ -915,16 +1001,21 @@
     "variations": [
       {
         "type": "Custom Property",
-        "name": "Designs",
+        "name": "Design",
         "values": [
-          "Hearts",
-          "Checkered",
+          "Pop Art",
           "Retro checkered",
-          "Boho",
-          "Yellow"
+          "Boho Hearts",
+          "Yellow Sun"
         ]
       }
     ],
+    "designImages": {
+      "Pop Art": "https://i.etsystatic.com/44513884/r/il/8d9bc0/6706592596/il_fullxfull.6706592596_lbdx.jpg",
+      "Retro checkered": "https://i.etsystatic.com/44513884/r/il/36a7a0/6706592578/il_fullxfull.6706592578_o7le.jpg",
+      "Boho Hearts": "https://i.etsystatic.com/44513884/r/il/172459/6706592582/il_fullxfull.6706592582_83ao.jpg",
+      "Yellow Sun": "https://i.etsystatic.com/44513884/r/il/7eef2c/6706592594/il_fullxfull.6706592594_5cl0.jpg"
+    },
     "sku": "",
     "source": "etsy-csv",
     "collections": [
@@ -976,16 +1067,21 @@
     "variations": [
       {
         "type": "Custom Property",
-        "name": "Designs",
+        "name": "Design",
         "values": [
           "Book Lover",
           "Awesome crap",
           "Dogs",
-          "Secrets",
-          "Can&#39;t Find"
+          "Can't Find"
         ]
       }
     ],
+    "designImages": {
+      "Book Lover": "https://i.etsystatic.com/44513884/r/il/28554d/6754614805/il_fullxfull.6754614805_7s2u.jpg",
+      "Awesome crap": "https://i.etsystatic.com/44513884/r/il/d92355/6614230426/il_fullxfull.6614230426_i3cp.jpg",
+      "Can't Find": "https://i.etsystatic.com/44513884/r/il/7eb6e3/6754614815/il_fullxfull.6754614815_64wt.jpg",
+      "Dogs": "https://i.etsystatic.com/44513884/r/il/87a91d/6706571648/il_fullxfull.6706571648_6pye.jpg"
+    },
     "sku": "LTB002,LTB005,LTB001,LTB003,LTB004",
     "source": "etsy-csv",
     "collections": [

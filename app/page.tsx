@@ -20,13 +20,20 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/rt-logo.png",
-        width: 500,
-        height: 500,
-        alt: "Rainbow Trove logo",
+        url: "/rt-main.png",
+        width: 1647,
+        height: 955,
+        alt: "Rainbow Trove thoughtful personalized gifts",
         type: "image/png",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Personalized Gifts, Bookmarks, Stickers, and Keepsakes",
+    description:
+      "Shop thoughtful personalized gifts handmade by Rainbow Trove for readers, teachers, sports fans, and everyday celebrations.",
+    images: ["/rt-main.png"],
   },
 };
 
@@ -37,7 +44,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl gap-7 px-5 py-10 sm:py-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8">
           <div className="max-w-2xl">
             <p className="mb-3 inline-flex rounded-full bg-[#fffaf5]/85 px-4 py-2 text-sm font-bold text-[#9f6f68] shadow-sm shadow-[#eadbd5]">
-              Handmade gifts with a little extra sparkle
+              Crafted memories, personalized with care
             </p>
             <h1 className="text-4xl font-extrabold leading-tight text-[#4A4A4A] sm:text-5xl lg:text-6xl">
               Thoughtful personalized gifts made with color, creativity, and care.
@@ -55,12 +62,15 @@ export default function Home() {
               </Link>
               <Link
                 href="/contact"
-                className="rounded-full border border-[#d9c9bd] bg-[#fffaf5] px-6 py-3 text-center text-sm font-bold text-[#8a7467] transition hover:bg-[#f3e8e2]"
+                className="rounded-full border border-[#b8837a] bg-[#fffdf9] px-6 py-3 text-center text-sm font-bold text-[#7e5752] transition hover:bg-[#f3e8e2]"
               >
                 Start a Custom Order
               </Link>
             </div>
-            <p className="mt-4 max-w-xl text-sm font-semibold leading-6 text-[#6f625c]">
+            <p className="mt-4 text-sm font-extrabold tracking-wide text-[#9f6f68]">
+              ★★★★★ Loved by customers
+            </p>
+            <p className="mt-2 max-w-xl text-sm font-semibold leading-6 text-[#6f625c]">
               Personalized bookmarks, stickers, mugs, tumblers, coasters, and custom gifts
               made for readers, teachers, sports fans, and everyday celebrations.
             </p>
@@ -80,8 +90,8 @@ export default function Home() {
             <div className="grid gap-4 sm:pt-6">
               <div className="rounded-[2rem] bg-[#fffaf5] p-4 shadow-xl shadow-[#dfe8d7]">
                 <Image
-                  src="/images/stickers/reader1.png"
-                  alt="Bookish reader sticker"
+                  src="https://i.etsystatic.com/44513884/r/il/994ecc/8165976189/il_fullxfull.8165976189_q92m.jpg"
+                  alt="Personalized Dad Nutrition Facts mug"
                   width={420}
                   height={420}
                   className="h-44 w-full rounded-[1.5rem] object-cover"
@@ -89,8 +99,8 @@ export default function Home() {
               </div>
               <div className="overflow-hidden rounded-[2rem] bg-[#fffaf5] p-4 shadow-xl shadow-[#eadbd5]">
                 <Image
-                  src="https://i.etsystatic.com/44513884/r/il/20b6f8/5832098894/il_fullxfull.5832098894_8koa.jpg"
-                  alt="Personalized glass tumbler with bamboo lid"
+                  src="https://i.etsystatic.com/44513884/r/il/b52516/5953979371/il_fullxfull.5953979371_9p71.jpg"
+                  alt="Smiley car coasters"
                   width={420}
                   height={420}
                   className="h-44 w-full rounded-[1.5rem] object-cover"

@@ -1,32 +1,30 @@
-export type ProductCtaInput = {
-  id: string;
+type ProductIdentityInput = {
   title: string;
   category: string;
+  tags?: string[];
+};
+
+export type ProductCtaInput = ProductIdentityInput & {
+  id: string;
   personalizable?: boolean;
   collections?: string[];
 };
 
-export function getProductCta(product: ProductCtaInput) {
+export function isDesignChoiceProduct(product: ProductIdentityInput) {
   const category = product.category.toLowerCase();
   const title = product.title.toLowerCase();
-  const isCustom = product.personalizable || product.collections?.includes("custom");
+  const tags = product.tags?.join(" ").toLowerCase() ?? "";
+  const searchableText = `${title} ${category} ${tags}`;
 
-  if (category.includes("bookmark") || title.includes("bookmark")) {
-    return {
-      label: "View Details",
-      href: `/products/${product.id}`,
-    };
-  }
+  return (
+    searchableText.includes("car coaster") ||
+    searchableText.includes("ceramic coaster")
+  );
+}
 
-  if (isCustom || title.includes("custom") || title.includes("personalized")) {
-    return {
-      label: "Personalize",
-      href: `/contact?productId=${encodeURIComponent(product.id)}`,
-    };
-  }
-
+export function getProductCta(product: ProductCtaInput) {
   return {
-    label: "Shop Now",
+    label: "View Details",
     href: `/products/${product.id}`,
   };
 }

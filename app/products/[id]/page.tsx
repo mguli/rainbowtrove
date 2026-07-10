@@ -23,6 +23,10 @@ type Product = {
   materials?: string[];
   collections?: string[];
   personalizable?: boolean;
+  variations?: {
+    name: string;
+    values: string[];
+  }[];
   etsyUrl?: string;
   sku?: string;
 };
@@ -136,6 +140,28 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
   const etsyHref = product.etsyUrl ?? ETSY_SHOP_URL;
   const productJsonLd = buildProductJsonLd(product);
   const productName = product.displayTitle ?? product.title;
+  const designOptions =
+    product.variations?.find((variation) => {
+      const name = variation.name.toLowerCase();
+      return name.includes("design") || name.includes("style choice");
+    })
+      ?.values ?? [];
+  const primaryAction = {
+    href: etsyHref,
+    label: "Buy on Etsy",
+    external: true,
+  };
+  const secondaryAction = product.personalizable
+    ? {
+        href: contactHref,
+        label: "Personalize",
+        external: false,
+      }
+    : {
+        href: contactHref,
+        label: "Ask a question",
+        external: false,
+      };
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -218,23 +244,46 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={etsyHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#b8837a] px-6 py-3 text-sm font-bold text-[#fffaf5] transition hover:bg-[#9f6f68]"
-              >
-                <ShoppingBag aria-hidden="true" className="h-4 w-4" />
-                {product.personalizable ? "Personalize on Etsy" : "Buy on Etsy"}
-                <ExternalLink aria-hidden="true" className="h-4 w-4" />
-              </a>
-              <Link
-                href={contactHref}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d9c9bd] bg-[#fffaf5] px-6 py-3 text-sm font-bold text-[#8a7467] transition hover:bg-[#f3e8e2]"
-              >
-                <MessageCircle aria-hidden="true" className="h-4 w-4" />
-                Ask a question
-              </Link>
+              {primaryAction.external ? (
+                <a
+                  href={primaryAction.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#b8837a] px-6 py-3 text-sm font-bold text-[#fffaf5] transition hover:bg-[#9f6f68]"
+                >
+                  <ShoppingBag aria-hidden="true" className="h-4 w-4" />
+                  {primaryAction.label}
+                  <ExternalLink aria-hidden="true" className="h-4 w-4" />
+                </a>
+              ) : (
+                <Link
+                  href={primaryAction.href}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#b8837a] px-6 py-3 text-sm font-bold text-[#fffaf5] transition hover:bg-[#9f6f68]"
+                >
+                  <MessageCircle aria-hidden="true" className="h-4 w-4" />
+                  {primaryAction.label}
+                </Link>
+              )}
+              {secondaryAction.external ? (
+                <a
+                  href={secondaryAction.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d9c9bd] bg-[#fffaf5] px-6 py-3 text-sm font-bold text-[#8a7467] transition hover:bg-[#f3e8e2]"
+                >
+                  <ShoppingBag aria-hidden="true" className="h-4 w-4" />
+                  {secondaryAction.label}
+                  <ExternalLink aria-hidden="true" className="h-4 w-4" />
+                </a>
+              ) : (
+                <Link
+                  href={secondaryAction.href}
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#d9c9bd] bg-[#fffaf5] px-6 py-3 text-sm font-bold text-[#8a7467] transition hover:bg-[#f3e8e2]"
+                >
+                  <MessageCircle aria-hidden="true" className="h-4 w-4" />
+                  {secondaryAction.label}
+                </Link>
+              )}
             </div>
 
             {!product.etsyUrl && (
@@ -256,6 +305,24 @@ export default async function ProductDetailsPage({ params }: ProductDetailsPageP
                       className="rounded-full bg-[#f3e8e2] px-3 py-1 text-xs font-bold text-[#7d6d62]"
                     >
                       {material}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
+            {designOptions.length ? (
+              <div className="mt-8">
+                <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-[#9f6f68]">
+                  Available Designs
+                </h2>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {designOptions.map((design) => (
+                    <span
+                      key={design}
+                      className="rounded-full bg-[#fff4ed] px-3 py-1 text-xs font-bold text-[#7e5752]"
+                    >
+                      {design}
                     </span>
                   ))}
                 </div>

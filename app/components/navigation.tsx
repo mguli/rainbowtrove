@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
     { href: "/", label: "Home" },
@@ -13,18 +13,17 @@ export default function Navigation() {
         <header className="sticky top-0 z-50 border-b border-[#eadbd5] bg-[#fffaf5]/90 backdrop-blur">
             <nav
                 aria-label="Primary navigation"
-                className="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between lg:px-8"
+                className="flex w-full flex-col gap-4 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12"
             >
-                <Link href="/" className="flex items-center gap-3 text-2xl font-extrabold tracking-wide text-[#9f6f68]">
+                <Link href="/" className="inline-flex w-fit items-center rounded-full transition hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8837a]">
                     <Image
-                        src="/rt-logo.png"
-                        alt=""
-                        width={44}
-                        height={44}
-                        className="h-11 w-11 rounded-full object-cover"
+                        src="/rt-header-logo.png"
+                        alt="Rainbow Trove"
+                        width={4806}
+                        height={1301}
+                        className="h-14 w-auto sm:h-16"
                         priority
                     />
-                    <span>Rainbow Trove</span>
                 </Link>
 
                 <div className="flex flex-wrap items-center gap-2 sm:justify-end">
